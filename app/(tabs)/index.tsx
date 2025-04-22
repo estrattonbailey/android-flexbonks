@@ -1,74 +1,129 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { View, Text, TextStyle } from "react-native";
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+const common: TextStyle = {
+  paddingTop: 8,
+  color: "black",
+  fontWeight: "700",
+  flexShrink: 1,
+  flexBasis: "auto",
+  /**
+   * Value of 1 helps with taking up as much space as it needs to, but then
+   * short names align to the left
+   */
+  flexGrow: 0,
+  /**
+   * Adjusting font size also arbitrarily affects the truncation of text
+   */
+  fontSize: 24,
+};
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <View
+      style={{
+        backgroundColor: "white",
+        alignItems: "center",
+        justifyContent: "center",
+        paddingVertical: 80,
+      }}
+    >
+      <View
+        style={{
+          padding: 20,
+          width: "100%",
+          alignItems: "center",
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            gap: 8,
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            borderWidth: 1,
+            borderStyle: "dashed",
+            borderColor: "red",
+          }}
+        >
+          <Text
+            testID="profileHeaderDisplayName"
+            numberOfLines={1}
+            style={common}
+          >
+            Tom
+          </Text>
+          <View>
+            <View style={{ width: 40, height: 40, backgroundColor: "black" }} />
+          </View>
+        </View>
+      </View>
+      <View
+        style={{
+          padding: 20,
+          width: "100%",
+          alignItems: "center",
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            gap: 8,
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            borderWidth: 1,
+            borderStyle: "dashed",
+            borderColor: "red",
+          }}
+        >
+          <Text
+            testID="profileHeaderDisplayName"
+            numberOfLines={1}
+            style={common}
+          >
+            Today's Tom Sawyeeeeeeeeeeeeee Mean Mean Stride
+          </Text>
+          <View>
+            <View style={{ width: 40, height: 40, backgroundColor: "black" }} />
+          </View>
+        </View>
+      </View>
+
+      {/**
+       * The content of the text clearly names a difference too
+       */}
+      <View
+        style={{
+          padding: 20,
+          width: "100%",
+          alignItems: "center",
+        }}
+      >
+        <View
+          style={{
+            flexDirection: "row",
+            gap: 8,
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            borderWidth: 1,
+            borderStyle: "dashed",
+            borderColor: "red",
+          }}
+        >
+          <Text
+            testID="profileHeaderDisplayName"
+            numberOfLines={1}
+            style={common}
+          >
+            Today Tom Sawyeeeeeeeeeeeeee Mean Mean Stride
+          </Text>
+          <View>
+            <View style={{ width: 40, height: 40, backgroundColor: "black" }} />
+          </View>
+        </View>
+      </View>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
